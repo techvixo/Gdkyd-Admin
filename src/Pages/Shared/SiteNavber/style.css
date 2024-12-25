@@ -1,0 +1,66 @@
+/*Side navbar css start*/
+::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c0bdbdab; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  
+.navbar-section-main {
+    height: 100%;
+    overflow-y: scroll;
+    /* position: fixed; */
+}
+
+.site_logo{
+    border-bottom: 2px solid #4179B6;
+}
+.nav-menu-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.nav-main-menu:hover, .menu-active {
+    border-radius: 10px 0 0 10px;
+}
+
+
+.dashboard-item {
+    color: #FFFFFF;
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.nav-main-menu a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 25px 5px 10px;
+    /* margin: 10px 0 ; */
+}
+a.dashboard-item {
+    border-right: 4px solid rgba(98, 98, 255, 0);
+}
+a.dashboard-item.active {
+    background-color: #417ab640;
+    border-right: 4px solid #4179B6;
+}
+a.dashboard-item.active .manu_icon {
+   color: #4179B6;
+   font-weight: bold;
+}
+/*submenu section css end*/
