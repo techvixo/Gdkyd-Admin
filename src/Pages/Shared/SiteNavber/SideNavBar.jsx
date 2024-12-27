@@ -12,7 +12,7 @@ import { MdOutlineAddHome } from "react-icons/md";
 import { AiOutlineMessage } from "react-icons/ai";
 import { TfiWrite } from "react-icons/tfi";
 import { GoProject } from "react-icons/go";
-import logo from "../../../assets/logo/logo.png";
+import logo from "../../../assets/logo/logo.webp";
 
 const SideNavBar = () => {
   const navigation = useNavigate();
@@ -83,11 +83,11 @@ const SideNavBar = () => {
   return (
     <>
       <div className="navbar-section-main  bg-[#202020] pl-6">
-        <div className="py-2  flex items-center site_logo">
+        <div className="py-2  flex items-end gap-1 site_logo">
           <Link to="/">
-            <img src={logo} className=" w-24" alt="" />
+            <img src={logo} className=" w-20" alt="logo" />
           </Link>
-          <span className="text-white text-xl uppercase">Wintec</span>
+          <span className="text-white text-2xl uppercase">KYD</span>
         </div>
         <div className=" flex flex-col gap-0 md:gap-3 pt-4">
           {menus.map((menu, index) => (

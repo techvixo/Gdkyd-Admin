@@ -21,9 +21,9 @@ const OurMachine = () => {
       toast.success(response.data.message)
       setIsLoading(false)
     } catch (err) {
+      setIsLoading(false)
       console.error("Error fetching machines:", err);
       toast.error(err.response.data.error)
-      setIsLoading(false)
     }
   };
   useEffect(() => {
