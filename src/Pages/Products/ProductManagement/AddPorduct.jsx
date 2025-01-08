@@ -59,13 +59,6 @@ const AddProduct = () => {
       return;
     }
   
-    // Prepare the category object
-    const category = {
-      categoryId: selectedCategory._id,
-      title_en: selectedCategory.name_en,
-      title_cn: selectedCategory.name_cn,
-    };
-  
     // Prepare form data
     const formData = new FormData();
     formData.append("title_en", data.title_en);
@@ -74,7 +67,9 @@ const AddProduct = () => {
     formData.append("subTitle_cn", data.subTitle_cn);
     formData.append("description_en", data.description_en);
     formData.append("description_cn", data.description_cn);
-    formData.append("category", JSON.stringify(category));
+    formData.append("categoryId", selectedCategory._id);
+    formData.append("category_title_en", selectedCategory.name_en);
+    formData.append("category_title_cn", selectedCategory.name_cn);
   
     images.forEach((image) => {
       formData.append("images", image);

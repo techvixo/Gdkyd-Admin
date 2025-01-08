@@ -10,8 +10,8 @@ const BannerMenu = () => {
   },
   {
     id: 1,
-    title: "Service",
-    path: "/service"
+    title: "Product",
+    path: "/product"
   },
   {
     id: 1,
@@ -25,8 +25,8 @@ const BannerMenu = () => {
   },
   {
     id: 1,
-    title: "Blog",
-    path: "/blog"
+    title: "News",
+    path: "/news"
   },
   {
     id: 1,

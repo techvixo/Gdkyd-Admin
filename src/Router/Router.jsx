@@ -86,7 +86,7 @@ const router = createBrowserRouter([
             element: <HeroBanner></HeroBanner>
           },
           {
-            path: "/banner/service",
+            path: "/banner/product",
             element: <Service></Service>
           },
           {
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
             element: <Portfolio></Portfolio>
           },
           {
-            path: "/banner/blog",
+            path: "/banner/news",
             element: <Blog></Blog>
           },
           {
@@ -276,7 +276,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/blog",
+        path: "/news",
         element: (
           <PrivateRoute>
            <Blogs></Blogs>
@@ -284,7 +284,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/blog/create",
+        path: "/news/create",
         element: (
           <PrivateRoute>
            <AddBlog></AddBlog>
@@ -292,7 +292,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/blog/edit/:id",
+        path: "/news/edit/:id",
         element: (
           <PrivateRoute>
            <EditBlog></EditBlog>

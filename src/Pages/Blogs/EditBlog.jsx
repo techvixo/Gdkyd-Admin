@@ -71,7 +71,7 @@ const EditBlog = () => {
 
       if (response.status === 200) {
         toast.success("Blog updated successfully");
-       navigate("/blog")
+       navigate("/news")
       } else {
         toast.error("Failed to update the blog.");
       }

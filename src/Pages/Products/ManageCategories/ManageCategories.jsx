@@ -8,7 +8,7 @@ import BASEURL from "../../../../Constants";
 const ManageCategories = () => {
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
 
   // Fetch categories from API
   useEffect(() => {

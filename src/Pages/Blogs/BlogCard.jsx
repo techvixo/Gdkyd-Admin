@@ -61,7 +61,7 @@ const BlogCard = ({blog, refetch}) => {
       Published: {createdAt}
       </p>
       <div className="flex items-center gap-3">
-        <Link to={`/blog/edit/${_id}`}
+        <Link to={`/news/edit/${_id}`}
           className="btn btn-outline btn-info btn-sm px-4"
         >
           Edit

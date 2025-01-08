@@ -41,7 +41,7 @@ const Blogs = () => {
         <SearchAndFilter></SearchAndFilter>
         <div className="w-1/3 flex flex-col gap-3 items-end justify-center">
           <Link
-            to={"/blog/create"}
+            to={"/news/create"}
             className="text-sm text-white py-2 px-4 rounded"
             style={{
               background: "linear-gradient(to bottom, #3E3D45, #202020)",

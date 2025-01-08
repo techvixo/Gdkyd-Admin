@@ -66,7 +66,7 @@ const RecentUpdateFeed = ({ dashboard }) => {
                     <button className="text-blue-500 flex items-center space-x-1">
                       <FiEdit />
                       <span>
-                        <Link to={`/blog/edit/${recentBlog[index]._id}`}>
+                        <Link to={`/news/edit/${recentBlog[index]._id}`}>
                           EDIT
                         </Link>
                       </span>
@@ -74,7 +74,7 @@ const RecentUpdateFeed = ({ dashboard }) => {
                     <button className="text-blue-500 flex items-center space-x-1">
                       <FiEye />
                       <span>
-                        <Link to="/blog">VIEW</Link>
+                        <Link to="/news">VIEW</Link>
                       </span>
                     </button>
                   </div>

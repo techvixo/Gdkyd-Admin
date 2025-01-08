@@ -48,7 +48,7 @@ const AddBlog = () => {
       );
 
       toast.success(`Blog created successfully`);
-      navigate("/blog")
+      navigate("/news")
       // Reset the form or handle success response
     } catch (error) {
       console.log(error);

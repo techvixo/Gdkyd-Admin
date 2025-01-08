@@ -58,8 +58,8 @@ const SideNavBar = () => {
       icon: portfolio,
     },
     {
-      name: "Blog",
-      path: "/blog",
+      name: "News",
+      path: "/news",
       icon: blog,
     },
     {
