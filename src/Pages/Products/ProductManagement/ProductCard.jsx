@@ -78,7 +78,7 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
     const formData = new FormData();
     formData.append("title", editedProduct.title);
     formData.append("subtitle", editedProduct.subtitle);
-    formData.append("categoryId", editedProduct.category);
+    formData.append("category", editedProduct.category);
 
     editedProduct.images.forEach((image, index) => {
       formData.append(`images`, image);
