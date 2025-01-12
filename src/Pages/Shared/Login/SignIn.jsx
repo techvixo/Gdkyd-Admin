@@ -34,13 +34,12 @@ const SignIn = () => {
       email: data.email,
       password: data.password,
     };
-    // console.log(adminData);
-    // localStorage.setItem("token", "token");
-    // localStorage.setItem("userId", 1);
-    // localStorage.setItem("isVerified", true);
-    // navigate("/");
     try {
-      const response = await axios.post(`${BASEURL}/auth/login`, adminData);
+      const response = await axios.post(`${BASEURL}/auth/login`, adminData,
+        {
+          withCredentials: false, // Add this line to disable sending credentials with the request
+        }
+      );
       toast.success(`${response.data.message}`, {
         position: "top-center",
         autoClose: 5000,

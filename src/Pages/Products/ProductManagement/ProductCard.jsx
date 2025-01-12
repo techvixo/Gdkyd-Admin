@@ -15,7 +15,7 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
     title_cn: product.title_cn,
     subTitle_en: product.subTitle_en,
     subTitle_cn: product.subTitle_cn,
-    category: product.category?.categoryId,
+    // category: product.category?.categoryId,
     images: product.images || [],
   });
  
@@ -24,29 +24,13 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
       ? product.images.map((img) => `${BASEURL}/${img}`)
       : [defaultImg]
   );
-  const [categories, setCategories] = useState([]);
 
   const [deleteingSlider, setDeleteingSlider] = useState(null);
   const cencelModal = () => {
     setDeleteingSlider(null);
   };
 
-  const navigate = useNavigate();
-  // console.log(imagePreviews)
-  useEffect(() => {
-    // Fetch categories from the API
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get(`${BASEURL}/category/all`);
-        setCategories(response.data.data);
-      } catch (error) {
-        console.error(error.response);
-        console.error(error.response.data.error);
-      }
-    };
 
-    fetchCategories();
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -56,12 +40,6 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
     }));
   };
 
-  const handleCategoryChange = (e) => {
-    setEditedProduct((prev) => ({
-      ...prev,
-      category: e.target.value,
-    }));
-  };
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -78,7 +56,6 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
     const formData = new FormData();
     formData.append("title", editedProduct.title);
     formData.append("subtitle", editedProduct.subtitle);
-    formData.append("category", editedProduct.category);
 
     editedProduct.images.forEach((image, index) => {
       formData.append(`images`, image);
@@ -175,18 +152,6 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
             onChange={handleInputChange}
             className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
           />
-          <select
-            value={editedProduct.category}
-            onChange={handleCategoryChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          >
-            <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.name_en}
-              </option>
-            ))}
-          </select>
           <input
             type="file"
             multiple

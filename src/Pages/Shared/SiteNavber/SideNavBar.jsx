@@ -101,7 +101,7 @@ const SideNavBar = () => {
             </div>
           ))}
 
-          <div className="nav-main-menu">
+          <div className="nav-main-menu pb-6">
             <button
               onClick={() => handleLogOut()}
               className={"dashboard-item "}
