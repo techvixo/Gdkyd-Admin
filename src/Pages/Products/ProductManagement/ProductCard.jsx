@@ -40,14 +40,14 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
                   key={index}
                   src={`${BASEURL}/${product.images[0]}`}
                   alt="Product"
-                  className="w-full h-32 object-cover rounded"
+                  className="w-full rounded"
                 />
               ))
             ) : (
               <img
                 src={defaultImg}
                 alt="Product"
-                className="w-full h-32 object-cover rounded"
+                className="w-full rounded"
               />
             )}
           </div>
