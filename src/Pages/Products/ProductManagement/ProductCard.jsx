@@ -1,84 +1,17 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import defaultImg from "../../../assets/default-img.png";
 import BASEURL from "../../../../Constants";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
 
 const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
-  // console.log(product)
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedProduct, setEditedProduct] = useState({
-    title_en: product.title_en,
-    title_cn: product.title_cn,
-    subTitle_en: product.subTitle_en,
-    subTitle_cn: product.subTitle_cn,
-    // category: product.category?.categoryId,
-    images: product.images || [],
-  });
- 
-  const [imagePreviews, setImagePreviews] = useState(
-    product.images?.length > 0
-      ? product.images.map((img) => `${BASEURL}/${img}`)
-      : [defaultImg]
-  );
 
   const [deleteingSlider, setDeleteingSlider] = useState(null);
+
   const cencelModal = () => {
     setDeleteingSlider(null);
-  };
-
-
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditedProduct((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    const previews = files.map((file) => URL.createObjectURL(file));
-
-    setEditedProduct((prev) => ({
-      ...prev,
-      images: files,
-    }));
-    setImagePreviews(previews);
-  };
-
-  const handleSave = async () => {
-    const formData = new FormData();
-    formData.append("title", editedProduct.title);
-    formData.append("subtitle", editedProduct.subtitle);
-
-    editedProduct.images.forEach((image, index) => {
-      formData.append(`images`, image);
-    });
-
-    try {
-      const response = await axios.patch(
-        `${BASEURL}/product/update/${product._id}`,
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-
-      if (response.data.status === "success") {
-        toast.success(response.data.message);
-        setIsEditing(false);
-        fetchProducts()
-      } else {
-        toast.error("Failed to update product.");
-      }
-    } catch (error) {
-      console.error("Error updating product:", error);
-      toast.error(error.response?.data?.error || "Error updating product");
-    }
   };
 
   const handleDelete = async (deleteingSlider) => {
@@ -97,94 +30,9 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
     }
   };
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleCancel = () => {
-    setIsEditing(false);
-    setEditedProduct({
-      title: product.title,
-      subtitle: product.subtitle,
-      category: product.category._id,
-      images: product.images || [],
-    });
-    setImagePreviews(
-      product.images?.length > 0
-        ? product.images.map((img) => `${BASEURL}/${img}`)
-        : [defaultImg]
-    );
-  };
-// console.log(  product.images[0]);
   return (
     <div className="flex flex-col gap-2 rounded-lg shadow p-4">
-      {isEditing ? (
-        <>
-          <input
-            type="text"
-            name="title_en"
-            value={editedProduct.title_en}
-            placeholder="Title in English"
-            onChange={handleInputChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          />
-          <input
-            type="text"
-            name="title_cn"
-            value={editedProduct.title_cn}
-            placeholder="Title in Chinese"
-            onChange={handleInputChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          />
-          <input
-            type="text"
-            name="subTitle_en"
-            value={editedProduct.subTitle_en}
-            placeholder="Sub Title in English"
-            onChange={handleInputChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          />
-          <input
-            type="text"
-            name="subTitle_cn"
-            value={editedProduct.subTitle_cn}
-            placeholder="Sub Title in Chinese"
-            onChange={handleInputChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          />
-          <input
-            type="file"
-            multiple
-            onChange={handleImageChange}
-            className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
-          />
-          <div className="flex flex-wrap gap-2 mt-2">
-            {imagePreviews.map((preview, index) => (
-              <img
-                key={index}
-                src={preview}
-                alt="preview"
-                className="w-24 h-24 object-cover rounded"
-              />
-            ))}
-          </div>
-          <div className="flex items-center gap-3 mt-2">
-            <button
-              onClick={handleSave}
-              className="btn btn-outline btn-info btn-sm px-4"
-            >
-              Save
-            </button>
-            <button
-              onClick={handleCancel}
-              className="btn btn-outline btn-error btn-sm px-4"
-            >
-              Cancel
-            </button>
-          </div>
-        </>
-      ) : (
-        <>
+      <>
           <div className="flex flex-wrap gap-2">
             {product.images?.length > 0 ? (
               product?.images.slice(0, 1).map((img, index) => (
@@ -207,18 +55,18 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
             Product: #{product.productId}
           </p>
           <p className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm">
-            {product.subTitle_en}
+            {product.subTitle_en.slice(0, 400) + " .." }
           </p>
           <p className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm">
-            Product&apos;s Category: {product?.category?.title_en}
+            Category: <span className="text-blue-500 font-bold">{product?.category?.title_en}</span>
           </p>
           <div className="flex items-center gap-3">
-            <button
+            {/* <button
               onClick={handleEdit}
               className="btn btn-outline btn-info btn-sm px-4"
             >
               Edit
-            </button>
+            </button> */}
             <label
                 onClick={() => setDeleteingSlider(product)}
                 htmlFor="confirmation-modal"
@@ -238,7 +86,6 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
       )}
           </div>
         </>
-      )}
     </div>
   );
 };
