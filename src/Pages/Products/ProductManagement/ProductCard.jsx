@@ -54,6 +54,9 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
           <p className="font-semibold text-[#7B809A] text-sm">
             Product: #{product.productId}
           </p>
+          <p className="font-semibold text-[#3c3c3e] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm">
+            {product.title_en}
+          </p>
           <p className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm">
             {product.subTitle_en.slice(0, 400) + " .." }
           </p>
