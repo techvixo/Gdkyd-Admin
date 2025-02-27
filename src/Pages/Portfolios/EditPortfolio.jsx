@@ -148,6 +148,23 @@ const EditPortfolio = () => {
                 className="font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-sm"
               />
             </div>
+                   {/* Image Upload */}
+                   <div className="flex flex-col gap-2">
+              <p className="font-semibold text-[#344767] text-sm">Upload New Image</p>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+                id="imageUpload"
+              />
+              <label
+                htmlFor="imageUpload"
+                className="flex items-center justify-center gap-3 my-0 font-semibold text-[#7B809A] text-sm bg-[#F8F8F8] p-2 px-3 rounded-md w-full h-32 cursor-pointer"
+              >
+                <span className="text-xl mr-1">+</span> Upload Image
+              </label>
+            </div>
             {/* Buttons */}
             <div className="flex items-center gap-3 py-2">
               <button className="btn btn-outline btn-info btn-sm px-4" onClick={() => navigate("/portfolio")}>
@@ -175,7 +192,7 @@ const EditPortfolio = () => {
           ) : (
             <div className="image-preview relative w-52 h-52 overflow-hidden rounded-lg mr-4">
               <img
-                src={`${BASEURL}/${portfolio?.data?.image}`}
+                src={`${portfolio?.data?.image}`}
                 alt="Previous Image"
                 className="w-full h-full shadow-md rounded-full object-cover"
               />

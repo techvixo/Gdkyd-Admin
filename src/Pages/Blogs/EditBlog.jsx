@@ -175,7 +175,7 @@ const EditBlog = () => {
           ) : (
             <div className="image-preview relative w-52 h-52 overflow-hidden rounded-lg mr-4">
               <img
-                src={`${BASEURL}/${blog?.data?.heading_image}`}
+                src={`${blog?.data?.heading_image}`}
                 alt="Previous Image"
                 className="w-full h-full shadow-md rounded-full object-cover"
               />

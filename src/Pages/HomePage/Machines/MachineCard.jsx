@@ -12,7 +12,7 @@ const MachineCard = ({ machine, fetchMachines, setIsDelete }) => {
   });
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(
-    machine.image ? `${BASEURL}/${machine.image}` : defaultImg
+    machine.image ? `${machine.image}` : defaultImg
   );
 
   const handleInputChange = (e) => {
@@ -86,7 +86,7 @@ const MachineCard = ({ machine, fetchMachines, setIsDelete }) => {
       title_cn: machine.title_cn,
     });
     setImageFile(null);
-    setImagePreview(machine.image ? `${BASEURL}/${machine.image}` : defaultImg);
+    setImagePreview(machine.image ? `${machine.image}` : defaultImg);
   };
 
   return (
@@ -135,7 +135,7 @@ const MachineCard = ({ machine, fetchMachines, setIsDelete }) => {
       ) : (
         <>
           <img
-            src={`${BASEURL}/${machine?.image}` || defaultImg}
+            src={`${machine?.image}` || defaultImg}
             alt="team"
             className="w-full h-32 object-cover rounded"
           />

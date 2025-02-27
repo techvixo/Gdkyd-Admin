@@ -139,7 +139,7 @@ const EditCertificate = () => {
       {certificateData?.data?.image && (
               <div className="image-preview relative  w-52 h-52 overflow-hidden rounded-lg mr-4">
                 <img
-                  src={`${BASEURL}/${certificateData?.data?.image}`}
+                  src={`${certificateData?.data?.image}`}
                   alt="Current Preview"
                   className="w-full h-full shadow-md rounded-full object-cover"
                 />

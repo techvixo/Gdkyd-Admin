@@ -114,7 +114,7 @@ const BannerCard = ({ refetch, sliderInfo }) => {
       setNewLink(sliderInfo?.link || "");
     }
   }, [sliderInfo]);
-  console.log(sliderInfo);
+  // console.log(sliderInfo);
   return (
     <form className="form w-full flex bg-white  shadow-md rounded-md p-5">
       <div className="md:w-1/4 w-full ">
@@ -137,7 +137,7 @@ const BannerCard = ({ refetch, sliderInfo }) => {
               src={
                 profileImageFile
                   ? URL.createObjectURL(profileImageFile)
-                  : `${BASEURL}/${image}`
+                  : `${image}`
               }
               alt="Current Preview"
               className="w-full h-full shadow-md object-cover"

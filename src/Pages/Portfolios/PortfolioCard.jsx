@@ -35,7 +35,7 @@ const PortfolioCard = ({portfolio, refetch}) => {
   return (
     <div  className="flex flex-col gap-2 rounded-lg shadow p-4">
       <img
-        src={image ? `${BASEURL}/${image}` : defaultImg}
+        src={image ? `${image}` : defaultImg}
         alt="team"
         className="w-full h-32 object-cover rounded"
       />

@@ -39,7 +39,7 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
               product?.images.slice(0, 1).map((img, index) => (
                 <img
                   key={index}
-                  src={`${BASEURL}/${product.images[0]}`}
+                  src={`${product.images[0]}`}
                   alt="Product"
                   className="w-full rounded"
                 />

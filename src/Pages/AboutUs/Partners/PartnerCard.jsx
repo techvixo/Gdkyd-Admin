@@ -37,7 +37,7 @@ const PartnerCard = ({certificate, refetch}) => {
   return (
     <div  className="flex flex-col gap-2 rounded-lg shadow p-4">
       <img
-        src={`${BASEURL}/${certificate?.image}`}
+        src={`${certificate?.image}`}
         alt="certificate"
         className="w-full  rounded"
       />

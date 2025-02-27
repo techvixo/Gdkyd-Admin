@@ -106,7 +106,7 @@ const UpdateBanner = ({ data, refetch }) => {
         />
         :
         <img
-          src={`${BASEURL}/${data?.banner_image}`}
+          src={`${data?.banner_image}`}
           alt="Current Preview"
           className="w-full h-full object-cover"
         />

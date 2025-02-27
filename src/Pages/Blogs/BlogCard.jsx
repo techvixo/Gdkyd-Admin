@@ -35,7 +35,7 @@ const BlogCard = ({blog, refetch}) => {
   return (
     <div  className="flex flex-col gap-2 rounded-lg shadow p-4">
       <img
-        src={`${BASEURL}/${heading_image}`}
+        src={`${heading_image}`}
         alt="blog"
         className="w-full h-32 object-cover rounded"
       />

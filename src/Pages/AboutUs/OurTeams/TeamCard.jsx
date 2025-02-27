@@ -72,7 +72,7 @@ const TeamCard = ({ team, fetchTeams, setIsDelete }) => {
         src={
           selectedImage
             ? URL.createObjectURL(selectedImage)
-            : `${BASEURL}/${team.image}` || defaultImg
+            : `${team.image}` || defaultImg
         }
         alt="team"
         className="w-full h-60 object-cover rounded"

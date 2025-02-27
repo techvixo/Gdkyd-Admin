@@ -68,7 +68,7 @@ const MangeAdmin = () => {
                                           <div key={i} className="shadow bg-gray-100 p-2 gap-2 rounded grid grid-cols-4">
                                                 <div className="flex font-semibold capitalize items-center justify-around">
                                                       <img
-                                                            src={`${BASEURL}/${admin?.image}`}
+                                                            src={`${admin?.image}`}
                                                             alt="Image"
                                                             className="w-12 h-12 shadow-md rounded-full object-cover"
                                                       />
