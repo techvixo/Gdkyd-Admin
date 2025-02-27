@@ -5,21 +5,26 @@ import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 import BASEURL from "../../../../Constants";
 import { toast } from "react-toastify";
+import Loader from "../../Shared/Loader/Loader";
 
 const ProductManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isDelete, setIsDelete] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const itemsPerPage = 6;
   
   // Fetch products from the API using Axios
   const fetchProducts = async () => {
+    setIsLoading(true)
     try {
       const response = await axios.get(`${BASEURL}/product/all`);
       setProducts(response.data.data);
       // toast.success(response.data.message);
+      setIsLoading(false)
     } catch (error) {
       toast.error(error.response.data.error);
+      setIsLoading(false)
     }
   };
   useEffect(() => {
@@ -35,7 +40,10 @@ const ProductManagement = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
-
+  
+if(isLoading){
+  return <Loader></Loader>
+}
   return (
     <div className="">
       <h1 className="my-2 font-semibold text-[#344767]">

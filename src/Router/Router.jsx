@@ -47,6 +47,7 @@ import EditHoner from "../Pages/AboutUs/Honer/EditHoner";
 import AddHoner from "../Pages/AboutUs/Honer/AddHoner";
 import Honers from "../Pages/AboutUs/Honer/Honers";
 import VideosPortfolio from "../Pages/Portfolios/VideosPortfolio";
+import EditProduct from "../Pages/Products/EditProduct/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/products/edit/:id",
+        element: (
+          <PrivateRoute>
+            <EditProduct></EditProduct>
           </PrivateRoute>
         ),
       },

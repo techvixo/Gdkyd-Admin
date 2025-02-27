@@ -5,6 +5,7 @@ import defaultImg from "../../../assets/default-img.png";
 import BASEURL from "../../../../Constants";
 import toast from "react-hot-toast";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
 
@@ -64,12 +65,13 @@ const ProductCard = ({ product, fetchProducts, setIsDelete }) => {
             Category: <span className="text-blue-500 font-bold">{product?.category?.title_en}</span>
           </p>
           <div className="flex items-center gap-3">
-            {/* <button
-              onClick={handleEdit}
-              className="btn btn-outline btn-info btn-sm px-4"
-            >
-              Edit
-            </button> */}
+          <Link to={`/products/edit/${product?._id}`}>
+          <button
+             
+             className="btn btn-outline btn-info btn-sm px-4"
+           >
+             Edit
+           </button></Link>
             <label
                 onClick={() => setDeleteingSlider(product)}
                 htmlFor="confirmation-modal"
