@@ -89,7 +89,7 @@ const EditProduct = () => {
       });
 
       toast.success(response.data.message);
-      // navigate("/products");
+      navigate("/products");
     } catch (error) {
       console.error("Error updating product:", error);
       toast.error(error.response?.data?.error || "Something went wrong.");
